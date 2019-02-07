@@ -404,9 +404,21 @@ async def play(ctx, *cards):
 		if len(plays)==0:
 			plays.append(cards)
     else:
-    	#make sure they match card number else disaster happens
-    	if len(cards) != len(plays[0])
+    	#make sure they match card number lest disaster happen
+    	if len(cards) != len(plays[0]):
+			await ctx.bot.send_message(ctx.message.channel, ':x: Play the same number of cards.')
+        	return
 		#look at cards in suit in player hand, and count cards, doubles, and tractors... (can you do that when the game starts to reduce runtime?)
+		cardcount = 0
+		doublecount = 0
+		tractorcount = 0
+		for i in hands[(turn+turncounter)%4]:
+			if insuit(i, currentSuit):
+				cardcount+=1;
+				if hands[(turn+turncounter)%4].count(i) == 2:
+					doublecount+=1;
+		doublecount /= 2;
+		
 		#if cards in suit >= total card count in initial hand, must match with cards in suit; else play all cards of that suit, then start playing cards of their choice
 		#if doubles in suit >= total doubles in initial hand, they must play that many doubles; else doubles must equal no. doubles in hand
 		#if exists a tractor of at least same size as inital tractor, must play a tractor
@@ -416,6 +428,7 @@ async def play(ctx, *cards):
 		#else determine by highest card in hierarchy
 		#increment point counts if opponents win
 		#change who gets the turn-
+		#reset values?
     #turn shift
 	if len[hands[0]] == 0 and len[hands[1]] == 0 and len[hands[2]] == 0 and len[hands[3]] == 0:
 		#if dealer score 14 and dealer's team took last trick and last trick high card was an ace then make it 15 and it's game over

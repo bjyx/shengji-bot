@@ -62,7 +62,7 @@ The dominant rank for each round is the score of the team of the current dealer.
 
 Cards are not dealt in this game, rather drawn - the bot attempts to simulate this by dealing one card every half-second. At any time during the drawing process, a player can declare a suit to be trump by revealing a card with the dominant rank; that card's suit is now the *trump suit*. (This is the *weak declaration* mentioned above.) 
 
-Revealing two of the same card (both of the dominant rank) will cancel any prior weak declaration.
+Revealing two of the same card (both of the dominant rank) will cancel any prior weak declaration, declaring the suit of the cards revealed to be the new trump suit. This is a *strong declaration*.
 
 *In the regular game, revealing a pair of jokers will declare no-trump rounds. This is not currently supported by this bot, but it may be implemented in the future.*
 
