@@ -77,7 +77,7 @@ public class HelpCommand extends Command {
 	@Override 
     public List<String> getAliases()
     {
-        return Arrays.asList("TS.help", "TS.commands");
+        return Arrays.asList("SJ.help", "SJ.commands");
     }
 	
 	@Override
@@ -93,9 +93,9 @@ public class HelpCommand extends Command {
 	@Override
 	public List<String> getUsageInstructions() {
         return Collections.singletonList(
-                "TS.help   **OR**  TS.help *<command>*\n"
-                + "TS.help - returns the list of commands along with a simple description of each.\n"
-                + "TS.help <command> - returns the name, description, aliases and usage information of a command.\n"
+                "SJ.help   **OR**  SJ.help *<command>*\n"
+                + "SJ.help - returns the list of commands along with a simple description of each.\n"
+                + "SJ.help <command> - returns the name, description, aliases and usage information of a command.\n"
                 + "   - This can use the aliases of a command as input as well.\n"
                 + "__Example:__ TS.help help");
 	}
