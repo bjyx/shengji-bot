@@ -9,6 +9,7 @@ import game.PlayerList;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 public class JoinCommand extends Command {
+	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public void onCommand(MessageReceivedEvent e, String[] args) {
 		if (GameData.hasGameStarted()) {

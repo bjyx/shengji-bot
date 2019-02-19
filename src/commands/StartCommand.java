@@ -24,12 +24,12 @@ public class StartCommand extends Command {
 			return;
 		}
 		if (PlayerList.getArray().contains(null)) {
-			sendMessage(e, ":x: You're going to need more people.");
+			sendMessage(e, ":x: You're going to need a game with less people. Might I recommend Twilight Struggle?"); //shameless self-plug lmao
 			return;
 		}
 		sendMessage(e, ":flower_playing_cards: Kāi shǐ!");
 		GameData.startGame();
-		//TODO more stuff here
+		//initialize other stuff here?...
 	}
 
 	@Override
