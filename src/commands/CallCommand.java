@@ -48,7 +48,7 @@ public class CallCommand extends Command {
 			if (!(HandManager.containspair(PlayerList.getArray().indexOf(e.getAuthor()), 15, 0))||!(HandManager.containspair(PlayerList.getArray().indexOf(e.getAuthor()), 16, 0))) {
 				sendMessage(e, ":x: Can you prove you have a pair of jokers?");
 				return;
-			} //verbose way to say "does not contain two jokers"
+			}
 		}
 		else {
 			if (i) {
