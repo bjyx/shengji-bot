@@ -6,9 +6,10 @@ import game.GameData;
 import game.Round;
 
 public class Card {
-	private final int rank; //2-13, 14 = A, 15 = J
+	private final int rank; //2-13, 14 = A, 15 = J-, 16 = J+
 	private final int suit; //1C 2D 3H 4S
 	public static final String[] numbers = {"zero","one","two","three","four","five","six","seven","eight","nine","keycap_ten","regional_indicator_j","regional_indicator_q","regional_indicator_k","regional_indicator_a","small_red_triangle_down","small_red_triangle"};
+	public static final String[] nums = {"0","1","2","3","4","5","6","7","8","9","10","J","Q","K","A","-","+"};
 	public static final String[] suits = {"joker","clubs","diamonds","hearts","spades"};
 	
 	public Card() {
@@ -64,6 +65,9 @@ public class Card {
 		return getSuitString().substring(0,1).toUpperCase();
 	}
 	public String toString() {
+		return "`" + nums[rank] + (suits[suit].substring(0,1).toUpperCase()) + "`";
+	}
+	public String toEmoji() {
 		return ":" + numbers[rank] + "::" + suits[suit] + ":";
 	}
 	

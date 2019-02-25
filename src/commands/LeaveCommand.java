@@ -2,6 +2,8 @@ package commands;
 
 import java.util.Arrays;
 import java.util.List;
+
+import game.GameData;
 import game.PlayerList;
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
@@ -11,7 +13,10 @@ public class LeaveCommand extends Command {
 	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public void onCommand(MessageReceivedEvent e, String[] args) {
-		//TODO: if game started return;
+		if (GameData.hasGameStarted()) {
+			sendMessage(e, ":x: Cannot join a game that has already started.");
+			return;
+		}
 		//TODO: if game over return;
 		if (!Arrays.asList(PlayerList.getArray()).contains(e.getAuthor())) {
 			sendMessage(e, ":x: You're not on the list.");
