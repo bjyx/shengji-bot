@@ -1,5 +1,6 @@
 package cards;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -10,7 +11,7 @@ import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.MessageEmbed;
 
 public class HandManager {
-	public static List<List<Card> > hands;
+	public static List< List<Card> > hands;
 	private static List<Card> kitty;
 	
 	public static void deal() throws InterruptedException {
@@ -48,7 +49,7 @@ public class HandManager {
 		return x;
 	}
 	public static MessageEmbed sendHands(int i) {
-		hands.get(i).sort(new Card.comparator());
+		Collections.sort(hands.get(i));
 		EmbedBuilder builder = new EmbedBuilder().setTitle("Your Hand");
 		StringBuilder newString = new StringBuilder();
 		for (Card c : hands.get(i)) {

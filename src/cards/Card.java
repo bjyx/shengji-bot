@@ -1,11 +1,10 @@
 package cards;
 
-import java.util.Comparator;
 
 import game.GameData;
 import game.Round;
 
-public class Card {
+public class Card implements Comparable<Card> {
 	private final int rank; //2-13, 14 = A, 15 = J-, 16 = J+
 	private final int suit; //1C 2D 3H 4S
 	public static final String[] numbers = {"zero","one","two","three","four","five","six","seven","eight","nine","keycap_ten","regional_indicator_j","regional_indicator_q","regional_indicator_k","regional_indicator_a","small_red_triangle_down","small_red_triangle"};
@@ -19,23 +18,6 @@ public class Card {
 	public Card(int r, int s) {
 		rank = r;
 		suit = s;
-	}
-	
-	static class comparator implements Comparator<Card> {
-		@Override
-		public int compare(Card o1, Card o2) {
-			if (o1.getHierarchy()==o2.getHierarchy()) { //mostly for handling all the trump ranks and throw-aways.
-				if (o1.suit==o2.suit) {
-					if (o1.rank==o2.rank) return 0;
-					else if (o1.rank<o2.rank) return -1;
-					else return 1;
-				}
-				else if (o1.suit < o2.suit) return -1;
-				else return 1;
-			}
-			return (o1.getHierarchy()-o2.getHierarchy())/Math.abs(o1.getHierarchy()-o2.getHierarchy());
-		}
-		
 	}
 	
 	public int getHierarchy() {
@@ -69,6 +51,12 @@ public class Card {
 	}
 	public String toEmoji() {
 		return ":" + numbers[rank] + "::" + suits[suit] + ":";
+	}
+	@Override
+	public int compareTo(Card o) {
+		if (getHierarchy()>o.getHierarchy()) return 1;
+		else if (getHierarchy()<o.getHierarchy()) return -1;
+		return 0;
 	}
 	
 }
