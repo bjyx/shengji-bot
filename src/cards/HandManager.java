@@ -21,7 +21,7 @@ public class HandManager {
 			for (int i=0; i<4; i++) {
 				hands.get((GameData.getDealer()+i)%4).add(CardList.cardList.remove(random.nextInt(CardList.cardList.size())));
 				PlayerList.getPlayer(i).openPrivateChannel().complete().sendMessage(sendHands(i)).complete();
-				Thread.sleep(1100);
+				Thread.sleep(1000);
 			}
 		}
 	}
