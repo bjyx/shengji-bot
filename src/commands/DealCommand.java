@@ -23,8 +23,8 @@ public class DealCommand extends Command {
 			sendMessage(e, ":x: `404 GAME NOT FOUND`"); 
 			return;
 		}
-		if (!GameData.isDealing()) {
-			sendMessage(e, ":x: What are you doing? Stop it! I...I-I...I-I-I-I-I-I-I--");  //GLaDOS
+		if (GameData.isDealing()) {
+			sendMessage(e, ":x: WhaT ArE YOu DOING? sToP iT! I...I-I...I-I-I-I-I-I-I--");  //GLaDOS
 			return;
 		}
 		if (!PlayerList.getArray().contains(e.getAuthor())) {

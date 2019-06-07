@@ -58,5 +58,7 @@ public class Card implements Comparable<Card> {
 		else if (getHierarchy()<o.getHierarchy()) return -1;
 		return 0;
 	}
-	
+	public boolean equals(Card o) {
+		return (rank==o.getRank() && suit==o.getSuit());
+	}
 }
