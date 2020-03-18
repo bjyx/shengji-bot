@@ -10,21 +10,13 @@ import net.dv8tion.jda.core.entities.User;
 public class PlayerList {
 	private static User[] players = {null, null, null, null};
 	
-	public static void addPlayer(User u) {
-		if (players[0]==null) {
-			players[0]=u;
+	public static void addPlayer(User u, int a) {
+		if (players[a]==null) {
+			players[a]=u;
 			return;
 		}
-		if (players[1]==null) {
-			players[1]=u;
-			return;
-		}
-		if (players[2]==null) {
-			players[2]=u;
-			return;
-		}
-		if (players[3]==null) {
-			players[3]=u;
+		if (players[(2+a)%4]==null) {
+			players[(2+a)%4]=u;
 			return;
 		}
 	}

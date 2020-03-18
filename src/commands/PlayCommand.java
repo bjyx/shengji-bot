@@ -21,15 +21,18 @@ public class PlayCommand extends Command {
 			return;
 		}
 		if (!GameData.isDealing()) {
-			sendMessage(e, ":x: WhaT ArE YOu DOING? sToP iT! I...I-I...I-I-I-I-I-I-I--");  //GLaDOS
+			sendMessage(e, ":x: WhaT ArE YOu DOING? sToP iT! I...i-I...I-I-i-I-I-I-i--");  //GLaDOS
 			return;
 		}
 		if (!PlayerList.getArray().contains(e.getAuthor())) {
 			sendMessage(e, ":x: Who *are* you? I don't blame you..."); //turrets
 			return;
 		}
-		
-		for (String i : args) {
+		if (args.length<2) {
+			sendMessage(e, ":x: Playing **what**, pray tell?");
+			return;
+		}
+		for (int i=1; i<args.length; i++) {
 			
 		}
 	}
